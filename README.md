@@ -1,45 +1,66 @@
-First Project – Java Spring Boot (Task 1)
+First Spring Boot Project – Task 1
 Project Overview
 
-This project was created as part of the Spring Framework coursework (Task 1).
-The objective is to build a basic Spring Boot application from scratch, create a controller, and handle HTTP requests.
+This project is part of Spring Framework Apps – Task 1.
+The goal is to build a simple Spring Boot application from scratch, create a controller, and handle HTTP requests.
 
 The application demonstrates:
 
-Creating a Spring Boot project using Spring Initializr
-Implementing a simple controller
-Handling HTTP requests using @ResponseBody
-Returning both plain text and a basic HTML view (MVC pattern)
+Basic Spring Boot setup
+Creating a controller
+Handling HTTP requests
+Returning responses using @ResponseBody
+Simple MVC structure with a view (HTML page)
 Technologies Used
 Java
 Spring Boot
 Maven
 Spring Web
 Thymeleaf
-Lombok
+Lombok (optional)
 Project Setup
-1. Clone the repository
-git clone https://github.com/Rumbi-A-M/first-project-java-spring.git
-cd first-project-java-spring
-2. Open in IDE
-Open the project in IntelliJ IDEA (recommended)
-Reload Maven dependencies
-3. Run the application
+1. Generate Project
 
-Run the main class:
+Project was created using:
+https://start.spring.io/
 
-FirstProjectJavaSpringApplication.java
-Application Usage
-Default Endpoint (GET request)
+Configuration:
 
-Open in browser:
+Project: Maven
+Language: Java
+Spring Boot: Latest stable version
 
-http://localhost:8080/
+Dependencies:
 
-Expected result:
-A simple text response returned from the controller.
+Spring Web
+Thymeleaf
+Lombok
+2. Run the Application
 
-Controller Explanation
+After importing into IntelliJ:
+
+mvn spring-boot:run
+
+Or run the main class directly.
+
+The application starts on:
+http://localhost:8080
+
+Project Structure
+    src/
+       └── main/
+       ├── java/
+       │    └── controller/
+       │         └── GreetingController.java
+       └── resources/
+            ├── templates/
+            │     └── greeting.html
+            └── static/
+                 └── (images)
+Features
+1. Simple HTTP Response
+
+A basic endpoint that returns text using @ResponseBody.
 
 Example:
 
@@ -49,56 +70,59 @@ public String home() {
     return "Hello World!";
 }
 
-Explanation:
+Access in browser:
+http://localhost:8080/
 
-@GetMapping("/") handles HTTP GET requests to the root URL
-@ResponseBody ensures the return value is sent directly as the HTTP response
-The browser displays the returned string
-MVC View Rendering
+2. MVC View (Thymeleaf)
 
-The project also demonstrates a simple MVC structure where a view is returned.
+The project also returns a view (HTML page).
 
-Endpoint:
+Controller example:
+
+@GetMapping("/greeting")
+public String greeting() {
+    return "greeting";
+}
+
+This loads:
+templates/greeting.html
+
+Frontend (Thymeleaf)
+HTML file: greeting.html
+Displays simple content (text + image)
+Uses Thymeleaf templating engine
+
+Example content:
+
+<h1>Hello from Spring Boot!</h1>
+<img src="/vistula.png" alt="Logo">
+Testing the Application
+Using Browser
+
+Home endpoint:
+http://localhost:8080/
+
+Greeting page:
 http://localhost:8080/greeting
 
-Expected result:
-
-An HTML page rendered using Thymeleaf
-The page may include text and an image
-Project Structure
-src/
- ├── main/
- │   ├── java/
- │   │   └── controller/
- │   │       └── GreetingController.java
- │   ├── resources/
- │   │   ├── templates/
- │   │   │   └── greeting.html
- │   │   └── static/
- │   │       └── image.png
-Testing
-
-You can test the application using:
-
-Browser
-http://localhost:8080/
-http://localhost:8080/greeting
-Postman
-Send a GET request to:
-http://localhost:8080/
+Key Concepts Learned
+How Spring Boot works
+Creating a controller using @Controller
+Handling requests with @GetMapping
+Using @ResponseBody
+Basic MVC pattern (Controller → View)
+Serving HTML with Thymeleaf
 Screenshots
 
-Add the following screenshots to meet assignment requirements:
+Add screenshots to demonstrate:
 
-Application running in the IDE
-Browser output for localhost:8080
-Greeting page with HTML view and image
-Learning Outcomes
+Application running in IntelliJ
+Browser output (home endpoint)
+Greeting page
 
-Through this project, the following concepts were practiced:
+Example:
 
-Creating and configuring a Spring Boot project
-Handling HTTP requests with controllers
-Using @ResponseBody
-Basic MVC pattern in Spring Boot
-Running and testing a Spring application
+![Home Page](home.png)
+![Greeting Page](greeting.png)
+
+
