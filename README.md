@@ -46,17 +46,6 @@ Or run the main class directly.
 The application starts on:
 http://localhost:8080
 
-Project Structure
-    src/
-       └── main/
-       ├── java/
-       │    └── controller/
-       │         └── GreetingController.java
-       └── resources/
-            ├── templates/
-            │     └── greeting.html
-            └── static/
-                 └── (images)
 Features
 1. Simple HTTP Response
 
